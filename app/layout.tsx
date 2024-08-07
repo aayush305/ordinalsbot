@@ -1,13 +1,18 @@
-import './globals.css'
+import Navbar from "./components/Navbar";
+import "./globals.css";
+import "antd/dist/antd.css";
 
 export default function RootLayout({
   children,
 }: {
-  children: React.ReactNode
+  children: React.ReactNode;
 }) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body>
+        <Navbar />
+        {children}
+      </body>
     </html>
-  )
+  );
 }
