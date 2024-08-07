@@ -9,6 +9,10 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@ant-design/icons": "^4.7.0",
+    "@mui/icons-material": "^5.16.6",
+    "@mui/material": "^5.16.6",
+    "antd": "^4.16.13",
     "axios": "^1.7.3",
     "next": "14.2.5",
     "ordinalsbot": "^0.2.12",
