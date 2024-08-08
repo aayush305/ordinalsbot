@@ -30,6 +30,7 @@ const AntdWalletBalance = () => {
   };
 
   const handleTickerChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    error && setError("");
     setTicker(e.target.value);
   };
 

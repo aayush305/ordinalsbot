@@ -1,7 +1,14 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { Grid, Typography, TextField, Button, Box, CircularProgress } from "@mui/material";
+import {
+  Grid,
+  Typography,
+  TextField,
+  Button,
+  Box,
+  CircularProgress,
+} from "@mui/material";
 import { fetchOrder, fetchOrders } from "./fetchData";
 import { Order } from "../constants/types";
 import OrderComponent from "./components/order";
@@ -10,6 +17,7 @@ const Orders = () => {
   const [orders, setOrders] = useState<Order[]>([]);
   const [loading, setLoading] = useState(false);
   const [newOrderId, setNewOrderId] = useState<string>("");
+  const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
     const orderIds = [
@@ -29,11 +37,19 @@ const Orders = () => {
   }, []);
 
   const handleAddOrder = async () => {
-    if (!newOrderId) {
+    if (!newOrderId.trim()) {
+      setError("Please enter a order id.");
+      setLoading(false);
       return;
     }
     setLoading(true);
+    setError(null);
     const orderRes = await fetchOrder(newOrderId);
+    if (!orderRes) {
+      setError("Order not found.");
+      setLoading(false);
+      return;
+    }
     setOrders([orderRes, ...orders]);
     setNewOrderId("");
     setLoading(false);
@@ -48,13 +64,18 @@ const Orders = () => {
         <TextField
           label="Order ID"
           value={newOrderId}
-          onChange={(e) => setNewOrderId(e.target.value)}
+          onChange={(e) => {
+            setNewOrderId(e.target.value);
+            error && setError(null);
+          }}
           variant="outlined"
           size="small"
           sx={{ marginRight: 2 }}
+          error={!!error}
+          helperText={error}
         />
-        <Button variant="contained" onClick={handleAddOrder}  disabled={loading}>
-        {loading ? <CircularProgress size={24} /> : "Show"}
+        <Button variant="contained" onClick={handleAddOrder} disabled={loading}>
+          {loading ? <CircularProgress size={24} /> : "Show"}
         </Button>
       </Box>
       <Grid container spacing={3}>

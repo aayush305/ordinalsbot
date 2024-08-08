@@ -33,6 +33,7 @@ const MuiTicker = () => {
   const handleInputChange: React.ChangeEventHandler<
     HTMLInputElement | HTMLTextAreaElement
   > = (event) => {
+    error && setError("");
     setFilter(event.target.value);
   };
 

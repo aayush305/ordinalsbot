@@ -26,6 +26,7 @@ const MuiWalletBalance = () => {
   const handleWalletAddressChange = (
     e: React.ChangeEvent<HTMLInputElement>
   ) => {
+    error && setError("");
     setWalletAddress(e.target.value);
   };
 
@@ -79,7 +80,12 @@ const MuiWalletBalance = () => {
           />
         </Grid>
         <Grid item xs={10} sm={2}>
-          <Button variant="contained" color="primary" onClick={handleSearch} disabled={loading}>
+          <Button
+            variant="contained"
+            color="primary"
+            onClick={handleSearch}
+            disabled={loading}
+          >
             {loading ? <CircularProgress size={24} /> : "Search"}
           </Button>
         </Grid>
