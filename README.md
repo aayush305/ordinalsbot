@@ -3,7 +3,7 @@
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app) and build specially for [OrdinalsBot](https://ordinalsbot.com/).
 
 ## Demo link:
-Access my site at [ordinalsbot-fziccled5-aayush305s-projects.vercel.app](https://ordinalsbot-fziccled5-aayush305s-projects.vercel.app/)
+Access my site at [ordinalsbot-blond.vercel.app](https://ordinalsbot-blond.vercel.app/)
 
 
 ## Getting Started
