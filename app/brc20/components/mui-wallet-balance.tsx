@@ -88,6 +88,7 @@ const MuiWalletBalance = () => {
       {data?.length > 0 &&
         data.map((balance, index) => (
           <Card
+            key={index}
             variant="outlined"
             sx={{
               minWidth: 275,

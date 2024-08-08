@@ -90,6 +90,7 @@ const AntdWalletBalance = () => {
       {data?.length > 0 &&
         data.map((balance, index) => (
           <Card
+            key={index}
             title={
               <span>
                 <WalletOutlined /> Ticker: {balance.tick}
