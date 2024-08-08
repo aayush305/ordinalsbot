@@ -1,4 +1,3 @@
-// app/brc20/page.tsx
 "use client"
 
 import { useEffect, useState } from "react";
